@@ -1,6 +1,6 @@
-/*! videojs-progressTips - v0.1.0 - 2013-09-15
+/*! videojs-progressTips - v0.1.0 - 2013-09-16
 * https://github.com/mickey/videojs-progressTips
-* Copyright (c) 2013 Michael Bensoussan; Licensed  */
+* Copyright (c) 2013 Michael Bensoussan; Licensed MIT */
 
 (function() {
 
@@ -28,9 +28,10 @@
         $('#vjs-tip-inner').html("" + minutes + ":" + seconds);
         barHeight = $('.vjs-control-bar').height();
         $("#vjs-tip").css("top", "" + (event.pageY - $(this).offset().top - barHeight - 20) + "px").css("left", "" + (event.pageX - $(this).offset().left - 20) + "px").css("visibility", "visible");
+        return;
       });
-      return $(".vjs-progress-control, .vjs-play-control").on("mouseout", function() {
-        return $("#vjs-tip").css("visibility", "hidden");
+      $(".vjs-progress-control, .vjs-play-control").on("mouseout", function() {
+        $("#vjs-tip").css("visibility", "hidden");
       });
     };
     this.on("loadedmetadata", init);

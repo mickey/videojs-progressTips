@@ -37,10 +37,13 @@ vjs.plugin 'progressTips', (options) ->
         .css("top", "#{event.pageY - $(@).offset().top - barHeight - 20}px")
         .css("left", "#{event.pageX - $(@).offset().left - 20}px")
         .css("visibility", "visible")
+        return
       return
 
     $(".vjs-progress-control, .vjs-play-control").on "mouseout", ->
       $("#vjs-tip").css("visibility", "hidden")
+      return
+    return
 
   @on("loadedmetadata", init)
   return
