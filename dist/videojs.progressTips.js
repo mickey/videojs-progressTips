@@ -16,7 +16,7 @@
       $(".vjs-progress-control").on("mousemove", function(event) {
         var barHeight, minutes, seconds, seekBar, timeInSeconds;
         seekBar = player.controlBar.progressControl.seekBar;
-        var mousePosition = event.offsetX / seekBar.width();
+        var mousePosition = (event.pageX - $(seekBar.el()).offset().left) / seekBar.width();
         timeInSeconds = mousePosition * player.duration();
         if (timeInSeconds === player.duration()) {
           timeInSeconds = timeInSeconds - 0.1;

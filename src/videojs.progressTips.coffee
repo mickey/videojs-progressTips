@@ -22,7 +22,7 @@ videojs.plugin 'progressTips', (options) ->
       # this is using an unofficial API so this might be broken in the future
       # tested with 4.2.0 and 4.2.1
       seekBar = player.controlBar.progressControl.seekBar
-      var mousePosition = event.offsetX / seekBar.width();
+      var mousePosition = (event.pageX - $(seekBar.el()).offset().left) / seekBar.width();
       timeInSeconds = mousePosition * player.duration();
       timeInSeconds = timeInSeconds - 0.1 if timeInSeconds == player.duration()
 
