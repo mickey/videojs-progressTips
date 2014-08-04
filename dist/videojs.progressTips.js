@@ -4,7 +4,7 @@
 
 (function() {
 
-  vjs.plugin('progressTips', function(options) {
+  videojs.plugin('progressTips', function(options) {
     var init;
     init = function() {
       var player;
@@ -16,8 +16,9 @@
       $(".vjs-progress-control").on("mousemove", function(event) {
         var barHeight, minutes, seconds, seekBar, timeInSeconds;
         seekBar = player.controlBar.progressControl.seekBar;
-        timeInSeconds = seekBar.calculateDistance(event) * seekBar.player_.duration();
-        if (timeInSeconds === seekBar.player_.duration()) {
+        var mousePosition = event.offsetX / seekBar.width();
+        timeInSeconds = mousePosition * player.duration();
+        if (timeInSeconds === player.duration()) {
           timeInSeconds = timeInSeconds - 0.1;
         }
         minutes = Math.floor(timeInSeconds / 60);
