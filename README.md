@@ -5,7 +5,7 @@ Display a tooltip on hover with the time on video.js players.
 ![videojs-progressTips](https://dl.dropboxusercontent.com/u/3086081/DONT-DELETE/videojs-progressTips.png)
 
 
-This plugin was tested on video.js 4.2.0 and 4.2.1.
+This plugin was updated to and tested on video.js 4.6.4.
 It depends on jQuery.
 
 ## Getting Started
