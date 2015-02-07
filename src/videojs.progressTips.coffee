@@ -6,7 +6,7 @@
 # Licensed under the MIT license.
 ##
 
-vjs.plugin 'progressTips', (options) ->
+videojs.plugin 'progressTips', (options) ->
   init = ->
     return unless @.techName == "Html5"
 
@@ -22,8 +22,9 @@ vjs.plugin 'progressTips', (options) ->
       # this is using an unofficial API so this might be broken in the future
       # tested with 4.2.0 and 4.2.1
       seekBar = player.controlBar.progressControl.seekBar
-      timeInSeconds = seekBar.calculateDistance(event) * seekBar.player_.duration()
-      timeInSeconds = timeInSeconds - 0.1 if timeInSeconds == seekBar.player_.duration()
+      var mousePosition = (event.pageX - $(seekBar.el()).offset().left) / seekBar.width();
+      timeInSeconds = mousePosition * player.duration();
+      timeInSeconds = timeInSeconds - 0.1 if timeInSeconds == player.duration()
 
       minutes = Math.floor(timeInSeconds / 60)
       seconds = Math.floor(timeInSeconds - minutes * 60)
